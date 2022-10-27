@@ -1,4 +1,4 @@
 module "vpc" {
     source = "../modules/vpc"
-    project = "st-dev-marcusw-sandbox-2e01"
+    project = "st-dev-ugonnau-sandbox-96e8"
 }
