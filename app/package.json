@@ -3,18 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "FIRESTORE_EMULATOR_HOST=localhost:8080 GCLOUD_PROJECT=st-dev-ugonnau-sandbox-96e8 GOOGLE_CLOUD_PROJECT=st-dev-ugonnau-sandbox-96e8 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.2.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@google-cloud/firestore": "^6.3.0",
+    "@material-ui/core": "^4.12.4",
+    "@mui/icons-material": "^5.10.6",
+    "@mui/material": "^5.10.6",
+    "email-validator": "^2.0.4",
+    "next": "^12.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-firebase-hooks": "^5.0.3",
+    "react-router-dom": "^6.4.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "@types/node": "^18.7.16",
+    "@types/react": "^17.0.2",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "firebase-tools": "^11.9.0"
   }
 }
