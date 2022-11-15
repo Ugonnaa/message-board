@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
-import { default as PageTitle } from '../lib/components/PageTitle'
-import Header from '../lib/components/Header'
-import { Api } from '@mui/icons-material'
-import { dateTime } from 'Luxon'
 
 export default function Home(props) {
-  // const [dates, setDates] = useState([] as string[])
-  // const listItems = props.dates.map((date) =>
-  // <li key={dates.toString()}>{dates}</li>
-  // )
   const [comments, setComments] = useState([] as any)
   const [listItems, setListItems] = useState([] as any) 
   const handleSubmit = async (event) => {
@@ -56,19 +48,13 @@ export default function Home(props) {
     const sortedComments = comments.sort(function(a,b){
       return (a.createdAt._seconds < b.createdAt._seconds?1:-1)
     })
-    setListItems(sortedComments.map((comment) =>
-      <li>{comment.comment}</li>
+    setListItems(sortedComments.map((comment, index) =>
+      <li key={index}>{comment.comment}</li>
     ))
-    console.log(listItems)
   },[comments])
-  useEffect(()=>
-  {
-    console.log(listItems)
-  },[listItems])
 
   return (
     <>
-      <PageTitle title="Message Board"></PageTitle>
       <Head>
         <title>Message Board App</title>
         <h1>Message Board App</h1>

@@ -15,8 +15,27 @@ set -euxo pipefail
 # which linux system user is going to run your app? who needs to own the files? (chown etc.)
 
 # Random commands to see in build logs
-cd /tmp
 
-ls -la
+echo $USER
 
-echo "${GREETING}! I'm in $(pwd), I'm user $(whoami), and this operating system is based on $(uname)!"
+sudo mv /tmp/app /app
+
+sudo apt-get update
+
+sudo apt-get install -y curl
+
+sudo chown -R $USER:$USER /app
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+nvm install 16
+
+cd /app
+
+npm install
+
+npm run build
